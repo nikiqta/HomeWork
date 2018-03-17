@@ -25,5 +25,4 @@
 | 123            |                     |
 | 22             |                     |
 *******************************************************************************************************************
-                                             [I'm an inline-style link](https://www.google.com)
-                                             [SoftUni Link to the solutions](https://judge.softuni.bg/Contests/577)
+###### [SoftUni Link to the solutions](https://judge.softuni.bg/Contests/577)
