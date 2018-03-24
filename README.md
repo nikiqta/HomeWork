@@ -78,19 +78,11 @@
 |220                   | 660kcal, 154g sugars                  |
 |300                   |                                       |
 |70                    |                                       |
-
-
-
-| Input                | Output                                |
 |----------------------|---------------------------------------|
 |Ice-cold Nuka-Cola    | 250ml Ice Cold Nuka-Cola:             |
 |250                   | 875kcal, 162.5g sugars                |
 |350                   |                                       |
 |65                    |                                       |
-
-
-
-| Input                | Output                                |
 |----------------------|---------------------------------------|
 |Nuka-Cola Quantum     | 350ml Nuka-Cola Quantum:              |
 |350                   | 2100kcal, 490g sugars                 |
@@ -112,7 +104,7 @@
 |10                    | Energy: IIIIIIIIII.I                  |
 |9                     |                                       |
 |10                    |                                       |
-| Input                |---------------------------------------|
+|----------------------|---------------------------------------|
 |Bauser                | Name: Bause                           |
 |10                    | Health: IIIIIIIIIIII|||||||||||||||||||
 |10                    | Energy: IIIIIIIIIIII                  |
