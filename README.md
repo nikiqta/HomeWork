@@ -112,27 +112,20 @@
 |10                    | Energy: IIIIIIIIII.I                  |
 |9                     |                                       |
 |10                    |                                       |
-
-
-| Input                | Output                                |
+|                      |                                       |
 |----------------------|---------------------------------------|
 |Bauser                | Name: Bause                           |
 |10                    | Health: IIIIIIIIIIII|||||||||||||||||||
 |10                    | Energy: IIIIIIIIIIII                  |
 |10                    |                                       |
 |10                    |                                       |
-
-
-| Input  | Output                        |
-|--------|-------------------------------|
-|Loogi   | Name: Loogi                   |
-|8       | Health: IIIIIIIII............I|
-|20      | Energy: III............I      |
-|2       |                               |
-|14      |                               |
-
-
-| Input                | Output                                |
+|----------------------|---------------------------------------|
+|Loogi                 | Name: Loogi                           |
+|8                     | Health: IIIIIIIII............I        |
+|20                    | Energy: III............I              |
+|2                     |                                       |
+|14                    |                                       |
+|                      |                                       |
 |----------------------|---------------------------------------|
 |Toad                  | Name: Toad                            |
 |0                     | Health: I.....I                       |
