@@ -1,5 +1,4 @@
 const server = require('http').createServer();
-
 const cluster = require('cluster');
 const cpus = require('os').cpus().length;
 

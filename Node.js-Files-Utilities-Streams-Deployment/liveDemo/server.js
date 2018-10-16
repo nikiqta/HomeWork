@@ -3,14 +3,11 @@ const fs = require('fs');
 
 const port = '4444';
 server.on('request', (req, res) => {
-    fs.readFile('./file.txt', (err, data) => {
-        if (err) {
-            console.warn(err.message);
-            return;
-        }
-
-        res.end(data);
-    })
+    const src = fs.createReadStream('./file.txt');
+    src.on('data', data => {
+        res.write(data);
+    });
+    src.on('end', () => res.end());
 });
 
 server.listen(port);
