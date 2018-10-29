@@ -1,0 +1,357 @@
+/* navbar css */
+
+body {
+    font-family: sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+header {
+    background: gray;
+    border-radius: 4px;
+    height: 150px;
+    padding-top: 20px;
+}
+.inner {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0px 20px;
+    position: relative;
+}
+.logo{
+    max-width: 140px;
+    margin-top: -10px;
+    float: left;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+    margin-top: 120px;
+    color:greenyellow;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+nav{
+    width: 100%;
+}
+
+nav > ul {
+    float: right;
+}
+nav > ul > li {
+    text-align: center;
+    line-height: 40px;
+    margin-left: 20px;
+}
+nav > ul li ul li {
+    width: 100%;
+    text-align: left;
+}
+nav ul li:hover {
+    cursor: pointer;
+    position: relative;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+nav ul li:hover > a {
+    color: greenyellow;
+}
+nav > ul > li > a {
+    cursor: pointer;
+    display: block;
+    outline: none;
+    width: 100%;
+    text-decoration: none;
+}
+nav > ul > li {
+    float: left;
+}
+nav a {
+    color: white;
+}
+nav > ul li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 2000;
+}
+nav > ul li ul li > a {
+    text-decoration: none;
+}
+[type="checkbox"],
+label {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    label {
+        display: block;
+        background: #222;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 0px;
+    }
+    label:after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 5px;
+        background: #777;
+        margin: 7px 5px;
+        box-shadow: 0px 10px 0px #777, 0px 20px 0px #777
+    }
+    [type="checkbox"]:checked ~ ul {
+        display: block;
+        z-index: 9999;
+        position: absolute;
+        right: 20px;
+        left: 20px;
+    }
+    nav a {
+        color: #777;
+    }
+    nav ul li {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: left;
+        background: #222;
+        text-indent: 20px;
+    }
+    nav > ul > li {
+        margin-left: 0px;
+    }
+    nav > ul li ul li {
+        display: block;
+        float: none;
+    }
+    nav > ul li ul {
+        display: block;
+        position: relative;
+        width: 100%;
+        z-index: 9999;
+        float: none;
+    }
+    h1 {
+        font-size: 26px;
+    }
+}
+
+
+/* submit form css */
+
+#status {
+    display: inline !important;
+}
+
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical ;
+}
+
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+/* error container */
+
+#replaceMe{
+    font-size:0px;
+    line-height:0;
+    margin:0;
+    padding:0;
+    height:0;
+}
+
+/* error message */
+#errBox{
+    min-width: 100%;
+    text-align: center;
+    background-color: pink;
+    border-radius: 4px;
+    padding-top:5px;
+    padding-bot:5px;
+}
+
+#errMsg{
+    display: inline-block;
+    color: orange;
+    font-size: 25px;
+}
+
+/* succsses message */
+
+#succssesBox{
+   min-width: 100%;
+    text-align: center;
+    background-color: green;
+    border-radius: 4px;
+    padding-top:5px;
+    padding-bot:5px;
+    
+}
+
+#succssesMsg{
+    display: inline-block;
+    color: orange;
+    font-size: 25px
+}
+
+/* memes view all */
+
+.meme{
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 4px;
+    width: 20%;
+}
+
+.meme>a>img {
+    width: 50%;
+    min-width: 150px;
+    height: 100%;
+}
+
+.container>div{
+    justify-content: space-around;
+}
+
+.memePoster{
+    display: inline-block;
+    max-width: 100%; 
+}
+
+.memePoster:hover{
+    border-radius: 4px;
+}
+
+/*details view */
+
+.content {
+    width: 100%;
+    border-radius: 4px;
+    border: 2px solid greenyellow;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.content img {
+    margin-right: 15px;
+    float: left;
+    width: 500px;
+    height: 400px;
+}
+
+ul{
+list-style-type: none;
+}
+
+.forms{
+    width: 350px;
+    border-radius: 5px;
+    background: #4CAF50;
+    margin: 20px auto;
+}
+
+.forms>label{
+    display: inline-block;
+}
+
+
+.forms>input{
+    width: 70%;
+    padding: 0;
+}
+
+.submit{
+    margin-left: 72px;
+    margin-bottom: 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+footer{
+    background: #808080;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#poster{
+    text-align: center;
+}
+
+h5{
+    display: inline-block;
+}
+h5:hover{
+    color: greenyellow;
+}
+
+h4{
+    text-align: center;
+}
+
+.message{
+    display: inline-block;
+    background: silver;
+    position: absolute;
+    right: 20px;
+    top: 160px;
+}
+
+.pagination a {
+    color: black;
+    text-align: center;
+    margin: auto;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+body #paginator{
+    text-align: center;
+    margin: auto;
+}
+
