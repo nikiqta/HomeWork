@@ -1,0 +1,20 @@
+<header>
+    <ul class="menu">
+        {{#if currentUser}}
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/addHotel">Generate Hotel</a></li>
+            <li><a href="/list/:page=1">List</a></li>
+            <li><a href="/addCategories">Add Categories</a></li>
+            <li>
+                <form id="logout-form" action="/logout" method="post"></form>
+                <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+            </li>
+            <li><a href="/myHotels/:page=1">Welcome, {{currentUser.username}}!</a></li>
+        {{else}}
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        {{/if}}
+    </ul>
+</header>

@@ -1,0 +1,24 @@
+{{> header}}
+<main>
+<div class="login-page">
+  <div class="form">
+    <form action="/addHotel" method="POST" class="create-form">
+      <input type="text" name='title' placeholder="Title" value="{{formData.title}}"/>
+      <input type="text" name='location' placeholder="Location" value="{{formData.location}}" />
+      <input type="text" name='imageUrl' placeholder="Image Url" value="{{formData.imageUrl}}" />
+
+      <select class='picker' name="type"  >
+      <option value="Fancy" selected="{{formData.type}}">Fancy</option>
+      <option value="Not Fancy" selected="{{formData.type}}">Not Fancy</option>
+      </select>
+      <br>
+      <br>
+      <textarea name="description" id="" cols="35" rows="10" placeholder="description"></textarea>
+      <br>
+
+      <button type="submit">create</button>
+    </form>
+  </div>
+</div>
+</main>
+{{> footer}}

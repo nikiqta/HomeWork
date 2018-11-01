@@ -1,0 +1,20 @@
+{{> header}}
+<main>
+    <h1>List</h1>
+
+    {{#each hotels}}
+        {{> hotel}}
+    {{/each}}
+    <div id="paginator" class="pagination">
+        {{#if prevPageZero}}
+            <a href="/{{direction}}/:page={{prevPage}}">&laquo;</a>
+        {{/if}}
+        {{#each pages}}
+            {{> paginator}}
+        {{/each}}
+        {{#if nextPageZero}}
+            <a href="/{{direction}}/:page={{nextPage}}">&raquo;</a>
+        {{/if}}
+    </div>
+</main>
+{{> footer}}

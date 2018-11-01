@@ -1,0 +1,16 @@
+{{> header}}
+<main>
+    {{#if successMessage}}
+        <span>{{successMessage}}</span> {{/if}}
+    {{#if globalError}}
+        <span>{{globalError}}</span> {{/if}} {{{body}}}
+
+<h1>Home Page</h1>
+
+{{#each hotels}}
+     {{> hotel}}
+    {{else}}
+    <h3>There are currently no hotels!</h3>
+{{/each}}
+</main>
+{{> footer}}

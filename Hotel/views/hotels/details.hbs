@@ -1,0 +1,42 @@
+{{> header}}
+<main>
+    <h1>Details</h1>
+    <fieldset>
+        <legend style="margin: 10px">Name:  <span style="color: royalblue">{{hotel.title}}</span></legend>
+        <p style="margin: 10px">Location:  <span style="color: royalblue">{{hotel.location}}</span></p>
+        <img class="hotelImg" src="{{hotel.imageUrl}}" alt="hotel image">
+        <p style="margin: 10px">Description:  <span style="color: royalblue">{{hotel.description}}</span></p>
+        <div>
+            <a href="http://localhost:3000/details/like/{{hotel._id}}"><img class="likeBtn"
+                   src="../../static/img/like-button-png-2.png" alt="like"></a>
+            <span>:{{hotel.likesCount}}</span>
+            {{#if isLiked}}
+                <span style="color: blue">Liked!</span>
+            {{/if}}
+            <span style="float: right">Views:  <span style="color: royalblue">{{hotel.viewsCount}}</span></span>
+        </div>
+
+    </fieldset>
+    <h3 style="margin-top: 30px; text-align: center">Have you been there?</h3>
+    <h3 style="margin-top: 10px; text-align: center"> Tell us more about your experience!</h3>
+
+    <div class="login-page">
+        <div class="form">
+            <form action="/comment/{{hotel._id}}" method="POST" class="create-form">
+                <input type="text" name='title' placeholder="Title"/>
+                <textarea name="comment" id="" cols="35" rows="10" placeholder="comment"></textarea>
+                <br>
+                <button type="submit">create</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    {{#each comments}}
+        {{> comment}}
+    {{else}}
+        <h5  style="margin-bottom: 30px; text-align: center">Be the first to write a review ...</h5>
+    {{/each}}
+</main>
+{{> footer}}
