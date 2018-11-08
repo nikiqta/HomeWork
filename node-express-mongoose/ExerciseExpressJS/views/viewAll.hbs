@@ -1,0 +1,20 @@
+{{> header}}
+{{#if message}}
+    <div class="message">{{message}}</div>
+{{/if}}
+<h1>Here are all memes</h1>
+<div class="container">
+    {{#each memes}}
+        {{> meme}}
+    {{else}}
+        <div>There are currently no memes!</div>
+    {{/each}}
+</div>
+<div id="paginator" class="pagination">
+    <a href="/{{direction}}/:page={{prevPage}}">&laquo;</a>
+    {{#each pages}}
+     {{> paginator}}
+    {{/each}}
+    <a href="/{{direction}}/:page={{nextPage}}">&raquo;</a>
+</div>
+{{> footer}}

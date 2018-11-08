@@ -1,0 +1,36 @@
+body>section{
+    display: flex;
+}
+
+h1{
+ text-align: center;
+}
+
+img {
+    max-width: 400px;
+}
+
+.tag{
+    float: left;
+    width: 10%;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+section>fieldset{
+    width: 350px;
+    height: auto;
+
+}
+
+fieldset img{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 300px;
+}
+

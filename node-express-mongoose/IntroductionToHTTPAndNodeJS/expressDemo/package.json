@@ -1,0 +1,12 @@
+{
+  "name": "expressdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engine":"9.8.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "nikiqta",
+  "license": "MIT"
+}

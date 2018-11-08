@@ -1,0 +1,17 @@
+{{> header}}
+<h1>Edit Movie</h1>
+<div class="container">
+    <img src=".{{memeSrc}}" alt=""/>
+    <form action="http://localhost:3000/edit/:id={{id}}" enctype=multipart/form-data method="POST">
+        <label for="movieTitle">Title</label>
+        <input type="text" id="movieTitle" name="memeTitle" value="{{title}}">
+
+        <label for="movieDescription">Movie description</label>
+        <textarea id="movieDescription" name="memeDescription" rows="10"
+                  cols="10">{{description}}</textarea>
+
+        <input type="submit" value="Edit">
+
+    </form>
+</div>
+{{> footer}}

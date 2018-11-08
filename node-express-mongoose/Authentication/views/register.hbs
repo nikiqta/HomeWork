@@ -1,0 +1,14 @@
+{{#if message}}
+    <div class="message">{{message}}</div>
+{{/if}}
+<h1>Register to Shop!</h1>
+<form method="post" action="/auth/register">
+    <p>Username</p>
+    <input type="text" name="username" value="{{inputData.username}}">
+    <p>Password</p>
+    <input type="password" name="password" value="{{inputData.password}}">
+    <p>Repeat Password</p>
+    <input type="password" name="repPass" value="{{inputData.repPass}}">
+    <br>
+    <input type="submit" value="Register">
+</form>

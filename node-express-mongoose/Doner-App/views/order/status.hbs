@@ -1,0 +1,12 @@
+{{> header}}
+<main>
+    <h1>Your orders</h1>
+    <div class="orders">
+         {{#each orders}}
+             {{> order}}
+         {{else}}
+             <h3>There are currently no orders!</h3>
+         {{/each}}
+    </div>
+</main>
+{{> footer}}

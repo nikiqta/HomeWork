@@ -1,0 +1,9 @@
+{{> header}}
+<main>
+    <h1>Hotels added by {{currentUser.username}}!</h1>
+
+    {{#each hotels}}
+        {{> hotel}}
+    {{/each}}
+</main>
+{{> footer}}

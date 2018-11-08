@@ -1,0 +1,15 @@
+<header>
+    <span class="logo">Doner  Place</span>
+    {{#if username}}
+        <span class="greeting">Welcome, {{username}}! | <a href="/logout">[logout]</a></span>
+    {{/if}}
+    <ul class="menu">
+        <li><a class="button" href="/">Home</a></li>
+        {{#if username}}
+            <li><a class="button" href="/order">Order Status</a></li>
+            {{else}}
+            <li><a class="button" href="/login">Login</a></li>
+            <li><a class="button" href="/register">Register</a></li>
+        {{/if}}
+    </ul>
+</header>

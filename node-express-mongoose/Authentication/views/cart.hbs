@@ -1,0 +1,19 @@
+<h1>welcome to your cart</h1>
+<h3>Items in cart: {{numItems}}</h3>
+<a href="/">Resume shopping</a>
+<div>
+    {{#each items}}
+        <div class="product">
+            <h3>
+                {{name}}
+            </h3>
+            <p>
+                Price {{price}}
+            </p>
+            <a href="/remove/{{@index}}">
+                Remove from cart
+            </a>
+        </div>
+    {{/each}}
+</div>
+<h3>Total: {{total}}</h3>

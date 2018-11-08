@@ -1,0 +1,14 @@
+{{> header}}
+<main>
+<div class="login-page">
+    <div class="form">
+        <form action="/login" method="POST" class="login-form">
+            <input type="text" name="username" placeholder="username" />
+            <input type="password" name="password" placeholder="password" />
+            <button type="submit">Login</button>
+            <p class="message">Not registered? <a href="/register">Create an account</a></p>
+        </form>
+    </div>
+</div>
+</main>
+{{> footer}}

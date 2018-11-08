@@ -1,0 +1,22 @@
+{{#if message}}
+<div class="message">{{message}}</div>
+{{/if}}
+<h1>Welcome to Shop!</h1>
+<h3>Welcome, {{username}}</h3>
+<h3>Items in cart: {{numItems}}</h3>
+<a href="/cart">Checkout</a>
+<div>
+    {{#each products}}
+        <div class="product">
+            <h3>
+                {{name}}
+            </h3>
+            <p>
+                Price {{price}}
+            </p>
+            <a href="/add/{{@index}}">
+                Add to cart
+            </a>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,17 @@
+{{> header}}
+<main>
+<div class="login-page">
+    <div class="form">
+        <form action="/register" method="POST" class="register-form">
+            <input type="text" name="username" placeholder="name" />
+            <input type="text" name="firstName" placeholder="first name" />
+            <input type="text" name="lastName" placeholder="first name" />
+            <input type="password" name="password" placeholder="password" />
+            <input type="password" name="repPass" placeholder="repPass" />
+            <button>create</button>
+            <p class="message">Already registered? <a href="/login">Sign In</a></p>
+        </form>
+    </div>
+</div>
+</main>
+{{> footer}}

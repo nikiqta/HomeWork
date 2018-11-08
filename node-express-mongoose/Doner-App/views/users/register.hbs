@@ -1,0 +1,29 @@
+{{>header}}
+{{#if message}}
+    <div class="message">{{message}}</div>
+{{/if}}
+<main>
+    <h1>Welcome to Doner Place!</h1>
+    <div class="formContainer">
+        <form class="forms" method="post" action="/register">
+            <h2>Register</h2>
+            <label for="regUsername">Username:</label><input id="regUsername" type="text" name="username"
+                                                             value="{{inputData.username}}"/>
+            <br/>
+            <label for="regFirstName">firstName:</label><input id="regFirstName" type="text" name="firstName"
+                                                             value="{{inputData.firstName}}"/>
+            <br/>
+            <label for="regLastName">lastName:</label><input id="regLastName" type="text" name="lastName"
+                                                              value="{{inputData.lastName}}"/>
+            <br/>
+            <label for="regPassword">Password:</label><input id="regPassword" type="password" name="password"
+                                                             value="{{inputData.password}}"/>
+            <br/>
+            <label for="regPassword">RepeatPass:</label><input id="regPassword" type="password" name="repPass"
+                                                             value="{{inputData.repPass}}"/>
+            <br/>
+            <input class="submit" type="submit" value="Register"/>
+        </form>
+    </div>
+</main>
+{{> footer}}
