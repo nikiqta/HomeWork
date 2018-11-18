@@ -1,0 +1,60 @@
+#root{
+    height: auto;
+}
+
+.App{
+text-align: center;
+    margin: auto;
+    height: auto;
+}
+
+.App img {
+    width: 50%;
+    height: 20vw;
+}
+
+.App .leftArrow{
+    position: relative;
+     width: 8%;
+     height: 8vw;
+ }
+
+.App .rightArrow{
+    position: relative;
+    width: 8%;
+    height: 8vw;
+    padding-bottom: 4px;
+}
+
+.characters {
+    margin: auto;
+    width: 50%;
+    height: 13vw;
+}
+
+.characters>img{
+    float: left;
+    width: 23%;
+    height: 12vw;
+    border: solid 3px yellow;
+    margin: 0.65%;
+}
+
+.heroDetails {
+    margin: auto;
+    width: 70%;
+    height: 20vw;
+    display: block;
+}
+
+.heroDetails fieldset {
+    display: block;
+}
+
+.heroes img {
+    width: 20%
+}
+
+
+
+

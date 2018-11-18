@@ -1,0 +1,12 @@
+body {
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+#counters{
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+

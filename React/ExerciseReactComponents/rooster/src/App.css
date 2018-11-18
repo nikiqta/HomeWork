@@ -1,0 +1,52 @@
+.app{
+    text-align: center;
+    margin: auto;
+}
+
+.warper{
+    display: inline-block;
+    position: relative;
+}
+
+.warper .sliderImg{
+    max-height: 400px;
+}
+
+.warper .slider-button{
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width: 150px;
+    height: 150px;
+}
+
+.warper .case-left {
+    left: 0;
+}
+.warper .case-right {
+    right: 0;
+}
+
+ul{
+    margin: auto;
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+.avatarPics{
+    max-height: 150px;
+    max-width: 150px;
+    border: 3px solid orange;
+}
+
+article{
+    padding: 5px;
+    margin: auto;
+    max-height: 400px;
+    max-width: 474px;
+    border: 2px solid grey;
+}

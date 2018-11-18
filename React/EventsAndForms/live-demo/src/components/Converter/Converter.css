@@ -1,0 +1,8 @@
+.converter{
+    margin: 4vw;
+    border: solid 2px red;
+}
+
+.converter input{
+    margin: 0.5vw;
+}
