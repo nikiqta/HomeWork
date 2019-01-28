@@ -1,0 +1,11 @@
+{{> header}}
+<main>
+    <h1>Browser</h1>
+    {{> search}}
+    {{#each cubes}}
+        {{> cube}}
+        {{else}}
+        <div>There are currently no cubes in the data base yet!</div>
+        {{/each}}
+</main>
+{{> footer}}
