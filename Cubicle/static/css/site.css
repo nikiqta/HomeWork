@@ -206,8 +206,7 @@ div.form {
 span.error {
     animation: fadeOut 1s forwards;
     animation-delay: 2s;
-    background: #EF5542;
-    color: white;
+    color: red;
     padding: 10px;
     text-align: center;
     text-decoration: none;
