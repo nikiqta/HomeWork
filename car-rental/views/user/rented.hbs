@@ -1,0 +1,20 @@
+{{> header}}
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Price Per Day</th>
+            <th>Rent Expires</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each cars}}
+        <tr>
+            <td>{{model}}</td>
+            <td>{{pricePerDay}} &euro;</td>
+            <td>{{days}} days!</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{> footer}}

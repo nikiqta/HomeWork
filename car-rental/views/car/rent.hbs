@@ -1,0 +1,13 @@
+{{> header}}
+<div id="details">
+    <div class="car-details">
+        <h2>{{car.model}}</h2>
+        <img src="{{car.image}}" alt="car" />
+    </div>
+    <form id="rent-form" action="/car/rent/{{car._id}}" method="POST">
+        <label for="days">Rent days:</label>
+        <input type="number" name="days" id="days" step="1" value="1" />
+        <input class="submit-btn" type="submit" value="Rent" />
+    </form>
+</div>
+{{> footer}}
