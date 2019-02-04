@@ -12,6 +12,17 @@ module.exports = app => {
 
     app.post('/user/logout', controllers.user.logout);
 
+    app.get('/article/create', restrictions.isAuthed, controllers.article.getCreateArticle);
+    app.post('/article/create', restrictions.isAuthed, controllers.article.postCreateArticle);
+
+    app.get('/article/details/:id', restrictions.isAuthed, controllers.article.getDetails);
+
+    app.get('/article/edit/:id', restrictions.isAuthed, controllers.article.getEditArticle);
+    app.post('/article/edit/:id', restrictions.isAuthed, controllers.article.postEditArticle);
+
+    app.get('/article/delete/:id', restrictions.isAuthed, controllers.article.getDeleteArticle);
+    app.post('/article/delete/:id', restrictions.isAuthed, controllers.article.postDeleteArticle);
+
     app.all('*', (req, res) => {
         res.status(404);
         res.send('<h1>404 Not Found</h1>');

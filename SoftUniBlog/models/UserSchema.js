@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const encryption = require('./../util/encryption.js');
 
@@ -8,7 +7,8 @@ const userSchema = new mongoose.Schema({
     fullName: {type: mongoose.SchemaTypes.String},
     salt: {type: mongoose.SchemaTypes.String, required: true},
     roles: [{type: mongoose.SchemaTypes.String}],
-    userPushEach: {type: mongoose.SchemaTypes.Boolean, default: true}
+    userPushEach: {type: mongoose.SchemaTypes.Boolean, default: true},
+    articles: [{type: mongoose.SchemaTypes.ObjectId}]
 });
 
 userSchema.method({
@@ -21,7 +21,7 @@ userSchema.method({
             return false;
         }
 
-        let isAuthor = article.author.equals(this.id);
+        let isAuthor = article.author.toString() === this.id;
 
         return isAuthor;
     },

@@ -2,24 +2,15 @@
 <div class="container body-content">
     <div class="row">
         <div class="col-md-6">
-            <article>
-                <header>
-                    <h2>Title1</h2>
-                </header>
-
-                <p>Content1
-                </p>
-
-                <small class="author">
-                    Author1
-                </small>
-
-                <footer>
-                    <div class="pull-right">
-                        <a class="btn btn-default btn-xs" href="/article/details/someID">Read more &raquo;</a>
-                    </div>
-                </footer>
-            </article>
+            {{#each articles}}
+                {{> article}}
+            {{else}}
+                <div>
+                    <h3>
+                        There are currently no articles yet...!
+                    </h3>
+                </div>
+            {{/each}}
         </div>
     </div>
 </div>

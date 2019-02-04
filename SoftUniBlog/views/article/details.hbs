@@ -1,28 +1,31 @@
+{{> header}}
 <div class="container body-content">
     <div class="row">
         <div class="col-md-12">
             <article>
                 <header>
-                    <h2>Title</h2>
+                    <h2>ar{{article.title}}</h2>
                 </header>
 
                 <p>
-                    Content
+                    {{article.content}}
                 </p>
 
                 <small class="author">
-                    Full Name
+                    {{article.fullName}}
                 </small>
 
                 <small>
-                    Date of creation
+                    {{date}}
                 </small>
 
                 <footer>
                     <div class="pull-right">
                         <!-- Only for admins or author-->
-                        <a class="btn btn-success btn-xs" href="/article/edit/someID">Edit &raquo;</a>
-                        <a class="btn btn-danger btn-xs" href="/article/delete/someID">Delete &raquo;</a>
+                        {{#if isAuth}}
+                            <a class="btn btn-success btn-xs" href="/article/edit/{{article._id}}">Edit &raquo;</a>
+                            <a class="btn btn-danger btn-xs" href="/article/delete/{{article._id}}">Delete &raquo;</a>
+                        {{/if}}
                         <a class="btn btn-default btn-xs" href="/">Back &raquo;</a>
                     </div>
                 </footer>
@@ -30,3 +33,4 @@
         </div>
     </div>
 </div>
+{{> footer}}

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const User = require('./../models/UserSchema.js');
+const Article = require('./../models/ArticleSchema.js');
 
 module.exports = config => {
   mongoose.connect(config.dbPath, {

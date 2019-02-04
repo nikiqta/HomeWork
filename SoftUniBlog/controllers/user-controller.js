@@ -11,7 +11,7 @@ module.exports = {
         let success = '';
         const {
             email,
-            fullname,
+            fullName,
             password,
             repPass
         } = req.body;
@@ -20,7 +20,7 @@ module.exports = {
             error = 'Please fill all fields!';
             res.render('user/register', {
                 email,
-                fullname,
+                fullName,
                 password,
                 repPass,
                 error
@@ -36,14 +36,14 @@ module.exports = {
                 email,
                 hashedPass,
                 salt,
-                fullname,
+                fullName,
                 roles: ['User']
             });
             req.logIn(user, (err, user) => {
                 if (err) {
                     res.render('user/register', {
                         email,
-                        fullname,
+                        fullName,
                         password,
                         repPass,
                         error
