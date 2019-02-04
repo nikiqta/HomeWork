@@ -1,0 +1,35 @@
+<header>
+    <div class="navbar navbar-default navbar-fixed-top text-uppercase">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">SoftUni Blog</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            {{#if user}}
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/user/details">Welcome</a></li>
+                    <li><a href="/article/create">New Article</a></li>
+                    <li style="margin-top: 19px">
+                        <form id="logout-form" action="/user/logout" method="POST">
+                            <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            {{else}}
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Login</a></li>
+                </ul>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</header>
