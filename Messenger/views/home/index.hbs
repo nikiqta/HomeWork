@@ -1,0 +1,24 @@
+{{> header}}
+<h1>Welcome to Messenger</h1>
+<h3 class="errorMsg">{{error}}</h3>
+{{#if user}}
+<form action="/threads/find" method="post" class="form center-form">
+    <div class="form-group">
+        <input name="username" placeholder="username" class="input-field search" value="username" />
+        <button class="btn btn-search">Search</button>
+    </div>
+</form>
+{{/if}}
+{{#if isAdmin}}
+<h1>Threads</h1>
+<div class="threads-list">
+    <div class="thread">
+        {{#each threads}}
+        {{> thread}}
+        {{else}}
+        <div>There are currently no threads!</div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+{{> footer}}
