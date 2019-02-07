@@ -1,0 +1,15 @@
+{{> header}}
+<h1>Chatroom with {{otherUser}}</h1>
+{{> userOptionForm}}
+<div class="chat-wrapper">
+    <div id="message-wrapper">
+        {{#each messages}}
+            {{> textMsg}}
+        {{else}}
+            <h5 style="text-align: center">There are no messages yet ...</h5>
+            <h6 style="text-align: center">Be the first one to text ...</h6>
+        {{/each}}
+    </div>
+    {{> sendMsgForm}}
+</div>
+{{> footer}}

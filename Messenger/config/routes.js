@@ -14,6 +14,9 @@ module.exports = app => {
 
     app.post('/threads/find', restrictions.isAuthed, controllers.thread.findThread);
 
+    app.get('/thread/:otherUser', restrictions.isAuthed, controllers.thread.getThread);
+    app.post('/thread/:otherUser', restrictions.isAuthed, controllers.thread.sendMessage);
+
     app.all('*', (req, res) => {
         res.status(404);
         res.send('<h1>404 Not Found</h1>');
