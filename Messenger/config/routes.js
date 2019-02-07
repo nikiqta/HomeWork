@@ -17,6 +17,11 @@ module.exports = app => {
     app.get('/thread/:otherUser', restrictions.isAuthed, controllers.thread.getThread);
     app.post('/thread/:otherUser', restrictions.isAuthed, controllers.thread.sendMessage);
 
+    app.post('/block/:otherUser', restrictions.isAuthed, controllers.user.blockUser);
+    app.post('/unblock/:otherUser', restrictions.isAuthed, controllers.user.unBlockUser);
+
+    app.post('/threads/remove/:id', restrictions.hasRole('Admin'), controllers.thread.removeThread);
+
     app.all('*', (req, res) => {
         res.status(404);
         res.send('<h1>404 Not Found</h1>');

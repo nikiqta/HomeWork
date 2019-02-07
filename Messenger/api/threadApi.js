@@ -22,7 +22,17 @@ function findThread(currentUser, searchedUser) {
     });
 }
 
+function getAllThreads() {
+    return Thread.find();
+}
+
+function removeThread(id) {
+    return Thread.findByIdAndRemove(id);
+}
+
 module.exports = {
     checkThreadExistence,
-    findThread
+    findThread,
+    getAllThreads,
+    removeThread
 };

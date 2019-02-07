@@ -46,10 +46,22 @@ module.exports = {
                 }
             });
 
+            let isBlocked = false;
+            if(user.blockedUsers.includes(otherUser)){
+                isBlocked = true;
+            }
+
+            let disabled = '';
+            if(searchedUser.blockedUsers.includes(user.username)){
+                disabled = 'disabled';
+            }
+
             res.render('threads/chatroom', {
                 otherUser,
                 messages,
-                threadId: thread._id
+                threadId: thread._id,
+                isBlocked,
+                disabled
             });
 
         } catch (e) {
@@ -67,5 +79,16 @@ module.exports = {
         } catch(e) {
             console.log(e);
         }
+    },
+    removeThread: async (req, res) => {
+         const { id } = req.params;
+
+         try {
+             await threadApi.removeThread(id);
+             await messageApi.removeMsg(id);
+             res.redirect('/');
+         } catch (e) {
+             console.log(e);
+         }
     }
 };

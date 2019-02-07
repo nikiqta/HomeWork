@@ -14,7 +14,14 @@ function createMsg(content, user, thread) {
      });
 }
 
+function removeMsg(id) {
+    return Message.find({
+        thread: id
+    }).remove();
+}
+
 module.exports = {
     getAllMessages,
-    createMsg
+    createMsg,
+    removeMsg
 };

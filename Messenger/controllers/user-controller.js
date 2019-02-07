@@ -1,5 +1,6 @@
 const encryption = require('./../util/encryption');
 const User = require('./../models/UserSchema.js');
+const userApi = require('./../api/uaserApi.js');
 
 module.exports = {
     gerRegister: (req, res) => {
@@ -97,5 +98,33 @@ module.exports = {
     logout: (req, res) => {
         req.logout();
         res.redirect('/');
+    },
+    blockUser: async (req, res) => {
+        const user = req.user;
+        const {otherUser} = req.params;
+
+        try {
+            await userApi.blockUser(user, otherUser)
+                .then(() => {
+                    res.redirect(`/thread/${otherUser}`);
+                })
+                .catch(err => console.log(err));
+        } catch (e) {
+            console.log(e);
+        }
+    },
+    unBlockUser: async (req, res) => {
+        const user = req.user;
+        const {otherUser} = req.params;
+
+        try {
+            await userApi.unBlockUser(user, otherUser)
+                .then(() => {
+                    res.redirect(`/thread/${otherUser}`);
+                })
+                .catch(err => console.log(err));
+        } catch (e) {
+            console.log(e);
+        }
     }
 };

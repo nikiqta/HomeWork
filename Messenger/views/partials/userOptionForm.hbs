@@ -1,3 +1,9 @@
-<form method="post" class="chat-form" action="/block/gosho">
-    <button class="btn btn-danger">Block</button>
-</form>
+{{#if isBlocked}}
+    <form method="post" class="chat-form" action="/unblock/{{otherUser}}">
+        <button class="btn btn-success">UnBlock</button>
+    </form>
+{{else}}
+    <form method="post" class="chat-form" action="/block/{{otherUser}}">
+        <button class="btn btn-danger">Block</button>
+    </form>
+{{/if}}
