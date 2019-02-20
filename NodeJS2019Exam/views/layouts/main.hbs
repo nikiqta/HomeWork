@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Manager</title>
+    <link href="/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <ul>
+        {{#if user}}
+            <li><a href="/">Home</a></li>
+        {{#if isUser}}
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/teams">Teams</a></li>
+        {{/if}}
+        {{#if isAdmin}}
+            <li><a href="/distribute/project">Projects</a></li>
+            <li><a href="/distribute/team">Teams</a></li>
+            <li><a href="/create/team">Create Team</a></li>
+            <li><a href="/create/project">Create Project</a></li>
+        {{/if}}
+            <div class="right">
+                <li>Welcome, {{user.firstName}}!</li>
+                <li><a href="/profile">Profile</a></li>
+                <li>
+                    <form id="logout-form" action="/user/logout" method="post"></form>
+                    <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                </li>
+            </div>
+        {{else}}
+            <li><a href="/">Home</a></li>
+            <div class="right">
+                <li><a href="/user/login">Login</a></li>
+                <li><a href="/user/register">Register</a></li>
+            </div>
+            {{/if}}
+    </ul>
+</header>
+<main>
+      {{{body}}}
+</main>
+<footer>
+    Express Exam @SoftUni
+</footer>
+</body>
+
+</html>

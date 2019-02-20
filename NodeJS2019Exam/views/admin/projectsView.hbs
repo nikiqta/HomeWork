@@ -1,0 +1,23 @@
+<h1>Projects</h1>
+<h3>Manage Teams</h3>
+<div class="form">
+    <form action="/distribute/project" method="post">
+        <label>Team</label>
+        <select name="teamId">
+            {{#each teams}}
+                <option value="{{_id}}">{{name}}</option>
+                {{else}}
+                <option>There are currently no teams in the data base yet!</option>
+                {{/each}}
+        </select>
+        <label>Project</label>
+        <select name="projectId">
+            {{#each projects}}
+                <option value="{{_id}}">{{name}}</option>
+                {{else}}
+                <option>There are currently no empty projects!</option>
+                {{/each}}
+        </select>
+        <input type="submit" value="Distribute">
+    </form>
+</div>
