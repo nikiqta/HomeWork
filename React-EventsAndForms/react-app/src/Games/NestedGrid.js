@@ -17,13 +17,12 @@ const styles = theme => ({
 
 function FormRow(props) {
     const {classes} = props;
-
     return (
         <Fragment>
-            {props.games.map(game => (
-                <Grid item xs={4}>
+            {props.games.map((game, index) => (
+                <Grid key={index} item xs={4}>
                     <Paper className={classes.paper}>
-                        <div>{game.title}</div>
+                        <div key={index}>{game.title}</div>
                         <img src={game.imageUrl} alt={game.title}/>
                         <Paper className={classes.paper}>
                             {game.description}
@@ -52,10 +51,10 @@ function NestedGrid(props) {
             <Typography variant="h2" color="inherit" className={classes.grow}>
                 GAMES
             </Typography>
-            {pairs.map((pair) => (
-                <Grid container spacing={8}>
-                    <Grid container item xs={12} spacing={24}>
-                        <FormRow classes={classes} games={pair}/>
+            {pairs.map((pair, i) => (
+                <Grid key={i} container spacing={8}>
+                    <Grid key={i} container item xs={12} spacing={24}>
+                        <FormRow key={i} classes={classes} games={pair}/>
                     </Grid>
                 </Grid>
             ))}

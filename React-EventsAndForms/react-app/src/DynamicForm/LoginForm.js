@@ -17,7 +17,6 @@ class LogInForm extends React.Component {
     }
 
     render() {
-        const {username, password} = this.state;
         return (
             <div className="Login">
                 <h1>Login</h1>

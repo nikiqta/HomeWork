@@ -16,8 +16,9 @@ const styles = {
 };
 
 function AppNav(props) {
-    const {classes} = props;
-    console.log(props);
+    const {classes, user} = props;
+    const isAuth = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
     return (
         <div className={classes.root}>
             <AppBar
@@ -27,14 +28,14 @@ function AppNav(props) {
                     <Typography variant="h4" color="inherit" className={classes.grow}>
                         Fog Games
                     </Typography>
-                    {props.user ? <Typography variant="h6" color="inherit" className={classes.grow}>
-                        Welcome, {props.user}!
+                    {user ? <Typography variant="h6" color="inherit" className={classes.grow}>
+                        Welcome, {user}!
                     </Typography> : ""}
 
-                    {props.user ?
+                    {user ?
                         <Button
                             color="inherit"
-                            onClick={() => props.logout()}><p>Logout</p>
+                            onClick={props.logout}><p>Logout</p>
                         </Button>
                         :
                         <Button

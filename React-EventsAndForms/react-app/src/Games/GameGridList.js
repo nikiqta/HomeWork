@@ -37,8 +37,8 @@ function GameGridList(props) {
     return (
         <div className={classes.root}>
             <GridList cellHeight={200} spacing={1} className={classes.gridList}>
-                {props.games.map(game => (
-                    <GridListTile key={game.imageUrl} cols={game.description ? 2 : 1} rows={game.description ? 2 : 1}>
+                {props.games.map((game, index) => (
+                    <GridListTile key={index} cols={game.description ? 2 : 1} rows={game.description ? 2 : 1}>
                         <img src={game.imageUrl} alt={game.title} />
                         <GridListTileBar
                             title={game.title}
