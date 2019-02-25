@@ -5,7 +5,6 @@ import Register from './Register/Register';
 import Login from './Login/Login';
 import Create from './Create/Create';
 import './App.css';
-import HomePage from "../../../EXAMS/FurnitureSystem/furniture-system/src/components/Home/HomePage";
 
 class App extends Component {
 
