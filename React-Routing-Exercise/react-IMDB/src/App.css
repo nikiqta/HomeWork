@@ -50,7 +50,15 @@ body {
   float: right;
 }
 
+.App header .link-greeting {
+  float: right;
+  text-align: left;
+}
 
+.App header .link-logout {
+  float: right;
+  text-align: left;
+}
 
 @media screen and (max-width: 500px) {
   .App header .link {
