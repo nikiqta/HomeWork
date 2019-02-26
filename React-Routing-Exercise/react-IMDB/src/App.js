@@ -22,17 +22,13 @@ class App extends Component {
         this.loginUser = this.loginUser.bind(this);
         this.logout = this.logout.bind(this);
         this.authentication = this.authentication.bind(this);
-        this.createMovie = this.createMovie.bind(this);
-        this.getMovies = this.getMovies.bind(this);
     }
 
     authentication(data) {
-        debugger;
         if (data.token) {
-            debugger;
             localStorage.setItem('token', data.token);
             localStorage.setItem('username', data.username);
-            localStorage.setItem('isAdmin', data.isAdmin);
+            localStorage.setItem('admin', data.isAdmin);
             this.setState({
                 user: data.username,
                 userId: data.userId,
@@ -40,7 +36,6 @@ class App extends Component {
                 isAdmin: data.isAdmin,
                 movies: []
             });
-            return <Redirect to='/'/>;
         }
     }
 
@@ -88,56 +83,21 @@ class App extends Component {
             loggedIn: false,
             isAdmin: false
         });
-        return <Redirect to='/'/>;
-    }
-
-  async  componentWillUpdate(nextProps, nextState, nextContext) {
-       await this.getMovies();
-    }
-
-    async getMovies() {
-        await fetch('http://localhost:9999/feed/movies', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                this.setState({movies: data.movies});
-            })
-            .catch(err => console.log(err));
-    }
-
-    async createMovie(data) {
-        await fetch('http://localhost:9999/feed/movie/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => {
-                return res.json()
-            })
-            .then(() => {
-                this.getMovies();
-                return <Redirect to="/"/>
-            })
-            .catch(err => console.log(err));
     }
 
     render() {
-        const {loggedIn, isAdmin} = this.state;
+        const { loggedIn } = this.state;
+        const adminPermissions = localStorage.getItem('admin');
+        const username = localStorage.getItem('username');
         return (
             <div className="App">
                 <header>
                     {<Link class="link" to="/">Home</Link>}
                     {!loggedIn && <Link class="link" to="/register">Register</Link>}
                     {!loggedIn && <Link class="link" to="/login">Login</Link>}
-                    {loggedIn && localStorage.getItem('isAdmin') && <Link class="link" to="/create/movie">Create Movie</Link>}
+                    {adminPermissions == 'true' && <Link class="link" to="/create/movie">Create Movie</Link>}
                     {loggedIn && <Link class="link" to="/">Movies</Link>}
-                    {loggedIn && <Link class="link-greeting" to="#">Welcome {this.state.user}!</Link>}
+                    {loggedIn && <Link class="link-greeting" to="#">Welcome {username}!</Link>}
                     {loggedIn && <Link class="link-logout" to="javascript:void(0)" className="nav-link" onClick={this.logout}>Logout</Link>}
                 </header>
 
@@ -151,8 +111,7 @@ class App extends Component {
                     <Route path="/login" render={(props) =>
                         <Login{...props} onLoginSubmit={this.loginUser}/>}
                     />
-                    <Route path="/create/movie" render={(props) =>
-                    <Create {...props} onCreateSubmit={this.createMovie}/>} />
+                    <Route path="/create/movie" component={Create}/>
                 </Switch>
             </div>
         );

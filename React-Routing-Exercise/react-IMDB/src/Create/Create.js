@@ -12,7 +12,24 @@ class Create extends Component {
       poster: ''
     };
     this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
+    this.createMovie = this.createMovie.bind(this);
   }
+
+  async createMovie(data) {
+    await fetch('http://localhost:9999/feed/movie/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => {
+            return res.json()
+        })
+        .then(() => {
+        })
+        .catch(err => console.log(err));
+}
 
   onInputChangeHandler(e) {
     this.setState({[e.target.name]: e.target.value});
@@ -27,7 +44,7 @@ class Create extends Component {
               <form onSubmit={(e) => {
                 debugger;
                 e.preventDefault();
-                this.props.onCreateSubmit(this.state);
+                this.createMovie(this.state);
                 this.props. history.push('/');
               }}>
                 <label htmlFor="title">Title</label>
