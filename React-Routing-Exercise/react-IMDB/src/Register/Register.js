@@ -9,13 +9,8 @@ class Register extends Component {
             username: '',
             password: ''
         };
-        this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
+        this.onInputChangeHandler = this.props.onInputChangeHandler.bind(this);
     }
-
-    onInputChangeHandler(e) {
-        this.setState({[e.target.name]: e.target.value});
-    }
-
 
     render() {
 

@@ -10,11 +10,7 @@ class Login extends Component {
             username: '',
             password: ''
         };
-        this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
-    }
-
-    onInputChangeHandler(e) {
-        this.setState({[e.target.name]: e.target.value});
+        this.onInputChangeHandler = this.props.onInputChangeHandler.bind(this);
     }
 
     render() {

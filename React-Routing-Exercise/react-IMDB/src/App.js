@@ -4,7 +4,12 @@ import Home from './Home/Home';
 import Register from './Register/Register';
 import Login from './Login/Login';
 import Create from './Create/Create';
+
+import {ToastContainer, toast} from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Header from "./Header/Header";
 
 class App extends Component {
 
@@ -22,6 +27,18 @@ class App extends Component {
         this.loginUser = this.loginUser.bind(this);
         this.logout = this.logout.bind(this);
         this.authentication = this.authentication.bind(this);
+        this.notify = this.notify.bind(this);
+    }
+
+    onInputChangeHandler(e) {
+        this.setState({[e.target.name]: e.target.value});
+    }
+
+    notify(message, type) {
+        toast[type](message, {
+            closeButton: false,
+            position: 'top-center'
+        });
     }
 
     authentication(data) {
@@ -51,12 +68,17 @@ class App extends Component {
                 return res.json()
             })
             .then(data => {
-                this.loginUser({
-                    username: payload.username,
-                    password: payload.password
-                })
+                if (data.username) {
+                    this.notify(data.message, 'success');
+                    this.loginUser({
+                        username: payload.username,
+                        password: payload.password
+                    });
+                } else {
+                    this.notify(data.message, 'error');
+                }
             })
-            .catch(err => console.log(err));
+            .catch(err =>  this.props.notify(err.message, 'error'));
     }
 
     async loginUser(payload) {
@@ -69,9 +91,14 @@ class App extends Component {
         })
             .then(res => res.json())
             .then((data) => {
-                this.authentication(data);
+                if (data.token) {
+                    this.notify(data.message, 'success');
+                    this.authentication(data);
+                } else {
+                    this.notify(data.message, 'error');
+                }
             })
-            .catch(err => console.log(err));
+            .catch(err =>  this.props.notify(err.message, 'error'));
     }
 
     logout(e) {
@@ -86,32 +113,32 @@ class App extends Component {
     }
 
     render() {
-        const { loggedIn } = this.state;
-        const adminPermissions = localStorage.getItem('admin');
-        const username = localStorage.getItem('username');
         return (
             <div className="App">
-                <header>
-                    {<Link class="link" to="/">Home</Link>}
-                    {!loggedIn && <Link class="link" to="/register">Register</Link>}
-                    {!loggedIn && <Link class="link" to="/login">Login</Link>}
-                    {adminPermissions == 'true' && <Link class="link" to="/create/movie">Create Movie</Link>}
-                    {loggedIn && <Link class="link" to="/">Movies</Link>}
-                    {loggedIn && <Link class="link-greeting" to="#">Welcome {username}!</Link>}
-                    {loggedIn && <Link class="link-logout" to="javascript:void(0)" className="nav-link" onClick={this.logout}>Logout</Link>}
-                </header>
-
+                <Header
+                    loggedIn={this.state.loggedIn}
+                    logout={this.logout}
+                />
+                <ToastContainer/>
                 <Switch>
                     <Route exact path="/" render={(props) =>
-                               <Home {...props}  data={this.state}/>}
+                        <Home {...props} notify={this.notify} data={this.state}/>}
                     />
                     <Route path="/register" render={(props) =>
-                            <Register{...props} onRegisterSubmit={this.registerUser}/>}
+                        <Register{...props} onRegisterSubmit={this.registerUser}
+                                 onInputChangeHandler={this.onInputChangeHandler}
+                        />}
                     />
                     <Route path="/login" render={(props) =>
-                        <Login{...props} onLoginSubmit={this.loginUser}/>}
+                        <Login{...props} onLoginSubmit={this.loginUser}
+                              onInputChangeHandler={this.onInputChangeHandler}
+                        />}
                     />
-                    <Route path="/create/movie" component={Create}/>
+                    <Route path="/create/movie" render={(props) => <Create
+                        {...props}
+                        notify={this.notify}
+                        onInputChangeHandler={this.onInputChangeHandler}
+                    />}/>
                 </Switch>
             </div>
         );
@@ -119,16 +146,5 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-                                <Link to="/" className="navbar-brand">FS</Link>
-                                <NavLink exact to="/" className="nav-link" activeClassName="active">Home</NavLink>
-                                {loggedIn && <NavLink to="/create" className="nav-link" activeClassName="active">Create Furniture</NavLink>}
-                                {loggedIn && <NavLink to="/profile" className="nav-link" activeClassName="active">My Furniture</NavLink>}
-                                {loggedIn && <a href="javascript:void(0)" className="nav-link" onClick={logout}>Logout</a>}
-                                {!loggedIn && <NavLink to="/login" className="nav-link" activeClassName="active">Login</NavLink>}
-                                {!loggedIn && <NavLink to="/register" className="nav-link" activeClassName="active">Register</NavLink>}
-
- */
 
 

@@ -11,7 +11,7 @@ class Create extends Component {
       trailerUrl: '',
       poster: ''
     };
-    this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
+    this.onInputChangeHandler = this.props.onInputChangeHandler.bind(this);
     this.createMovie = this.createMovie.bind(this);
   }
 
@@ -26,23 +26,25 @@ class Create extends Component {
         .then(res => {
             return res.json()
         })
-        .then(() => {
+        .then((data) => {
+          if(data._id) {
+            this.props.notify(data.message, 'success');
+          } else {
+            this.props.notify(data.message, 'error');
+          }
+
         })
-        .catch(err => console.log(err));
+        .catch(err =>  this.props.notify(err.message, 'error'));
 }
 
-  onInputChangeHandler(e) {
-    this.setState({[e.target.name]: e.target.value});
-  }
-
   render() {
+
     return (
         <div id="root">
           <div className="App">
             <div className="Create">
               <h1>Create Movie</h1>
               <form onSubmit={(e) => {
-                debugger;
                 e.preventDefault();
                 this.createMovie(this.state);
                 this.props. history.push('/');
